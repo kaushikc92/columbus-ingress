@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: echomap
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /authentication
+        backend:
+          serviceName: authentication
+          servicePort: 8000
+  - http:
+      paths:
+      - path: /api/v1/cdrive
+        backend:
+          serviceName: cdrive 
+          servicePort: 8000
+  - http:
+      paths:
+      - path: /cdrive
+        backend:
+          serviceName: cdrive-ui 
+          servicePort: 80
